@@ -66,14 +66,16 @@ Rewriting runnable Python3 code for Python2 samples in the book
 * 首先排除出现次数过少的元素，然后构建FP树，记录每条排序好的数据的出现次数
 * 对每个出现在FP树中的元素x，用x的前序路径构建FP树，每次都能过滤掉出现次数过少的路径，迭代这一过程，最终得到所有频繁项
 ### 4.数据压缩
+#### 协方差矩阵和它的特征向量
+* [线性代数的直观理解](https://www.bilibili.com/video/av6731067?p=1)，[协方差和相关系数](https://blog.csdn.net/zzh1301051836/article/details/82217676)，[协方差的特征分解](https://blog.csdn.net/u010182633/article/details/45937051)
+* 协方差可以用来衡量两变量的相关性，协方差矩阵正好可以将原图像变换成当前图像的样子，其特征向量对应了数据集最密集的向量方向
 #### 13-PCA
-* principal component analysis，利用协方差的特征矩阵进行数据降维
-#### 14.0-推荐系统
-* 已知user已评价过的物品集合x，预测user未评价的物品y。利用所有人对x的评价和对y的评价，计算x和y的相似度作为权重，累加x的评分。xy越相近，他们的得分就应该越相同
+* principal component analysis，利用协方差的特征矩阵（evd，特征值分解）进行数据降维，将数据投影到协方差矩阵中特征值较大的特征向量上
 #### 14-SVD
-* singular value decomposition，奇异值分解，Data(m * n) = U(m * m) * Sigma(m * n) * V.T(n * n)
+* singular value decomposition，[奇异值分解](https://www.cnblogs.com/endlesscoding/p/10033527.html)，Data(m * n) = U(m * m) * Sigma(m * n) * V.T(n * n)，是非方阵矩阵的协方差特征求法
 * Data(m * n) ~= U(m * 3) * Sigma(3 * 3) * V.T(3 * n)，Sigma保留越多，重构越精确，一般保留90%的精确度
-
+#### 推荐系统
+* 已知user已评价过的物品集合x，预测user未评价的物品y。利用所有人对x的评价和对y的评价，计算x和y的相似度作为权重，累加x的评分。xy越相近，他们的得分就应该越相同
 
 ## 下一步
 * matplotlib
